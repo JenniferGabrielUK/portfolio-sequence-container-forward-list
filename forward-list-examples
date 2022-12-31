@@ -121,11 +121,38 @@ void test4() {
     display(l2);
 }
 
+void test5() {
+    std::cout << "\nTest5========================" << std::endl;
+    std::list <Person> accounts{
+        {"Jenny", 18},
+        {"Elizabeth",19},
+        {"Gabriel",20}
+    };
+    display(accounts);
+    std::string name;
+    int age{};
+    std::cout << "\nEnter the name of the new account: ";
+    getline(std::cin, name);
+    std::cout << "Enter age: ";
+    std::cin >> age;
+    accounts.emplace_back(name, age);
+    display(accounts);
+    auto it = std::find(accounts.begin(), accounts.end(), Person{ "Elizabeth",19 });
+    if (it != accounts.end())
+        accounts.emplace(it, "Gandalf", 303);
+    display(accounts);
+    accounts.push_front(Person{ "Frodo", 25 });
+    display(accounts);
+    accounts.push_back(Person{ "Sam",37 });
+    display(accounts);
+}
+
 int main()
 {
     test1();
     test2();
     test3();
     test4();
+    test5();
     return 0;
 }
