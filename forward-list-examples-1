@@ -1,0 +1,29 @@
+#include <iostream>
+#include <iomanip>
+#include <list>
+#include <algorithm>
+#include <iterator>
+
+class Player_1 {
+	friend std::ostream& operator<<(std::ostream& os, const Player_1& rhs);
+private:
+	std::string name;
+	int xp;
+	double health;
+public:
+	Player_1(std::string name = "unknown", int xp = { 1 }, double health = { 1 }) //overloaded constructor
+		: name{ name }, xp{ xp }, health{ health } {}
+	Player_1(const Player_1& p) : name{ p.name }, xp{ p.xp }, health{ p.health } {} //copy constructor
+	~Player_1() = default;
+	bool operator > (const Player_1& p) { return this->xp > p.xp; }
+};
+
+std::ostream& operator<< (std::ostream& os, const Player_1& rhs) {
+	os << std::setw(15) << std::left << "[Person: " << std::setw(15) << std::right << rhs.name << ", " << rhs.health << ", " << rhs.xp << "]" << std::endl;
+	return os;
+};
+
+int main() {
+
+return 0;
+}
