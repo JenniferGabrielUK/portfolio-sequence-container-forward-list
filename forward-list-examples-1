@@ -4,6 +4,14 @@
 #include <algorithm>
 #include <iterator>
 
+template <typename T>
+void display(const std::list<T>& l) {
+	std::cout << "[ ";
+	for (const auto &i : l) {
+		std::cout << i << " ";
+	}
+}
+
 class Player_1 {
 	friend std::ostream& operator<<(std::ostream& os, const Player_1& rhs);
 private:
