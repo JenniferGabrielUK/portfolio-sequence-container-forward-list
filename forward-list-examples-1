@@ -6,11 +6,11 @@
 
 template <typename T>
 void display(const std::list<T>& l) {
-	std::cout << "[ ";
+	std::cout << "\n[ ";
 	for (const auto &i : l) {
 		std::cout << i << " ";
 	}
-	std::cout << "]";
+	std::cout << "]" << std::endl;
 }
 }
 
