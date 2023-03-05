@@ -24,6 +24,7 @@ public:
 	Player_1(const Player_1& p) : name{ p.name }, xp{ p.xp }, health{ p.health } {} //copy constructor
 	~Player_1() = default;
 	bool operator > (const Player_1& p) { return this->xp > p.xp; }
+	int get_xp() { return this->xp; }
 };
 
 std::ostream& operator<< (std::ostream& os, const Player_1& rhs) {
