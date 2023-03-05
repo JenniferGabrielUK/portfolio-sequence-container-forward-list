@@ -36,11 +36,36 @@ public:
 };
 
 std::ostream& operator<< (std::ostream& os, const Player_1& rhs) {
-	os << std::setw(15) << std::left << "[Person: " << std::setw(15) << std::right << rhs.name << ", " << rhs.health << ", " << rhs.xp << "]" << std::endl;
+	os << std::setw(15) << std::left << "[Player: " << std::setw(15) << std::right << rhs.name << ", " << rhs.health << ", " << rhs.xp << "]" << std::endl;
 	return os;
 };
 
 int main() {
-
+std::cout << std::setw(33) << std::setfill('-') << std::left << "\n" << std::endl;
+	std::list <Player_1> list_0{
+		{"Jenny", 18,10},
+		{"Elizabeth",19,11},
+		{"Gabriel",20,12}
+	};
+	display(list_0);
+	std::string name;
+	int xp{};
+	double health{};
+	std::cout << "\nEnter the name of the new account: ";
+	getline(std::cin, name);
+	std::cout << "Enter XP: ";
+	std::cin >> xp;
+	std::cout << "Enter health: ";
+	std::cin >> health;
+	list_0.emplace_back(name, xp, health);
+	display(list_0);
+	auto it = std::find(list_0.begin(), list_0.end(), Player_1{ "Elizabeth",19,21 });
+	if (it != list_0.end())
+		list_0.emplace(it, "Gandalf", 303,98);
+	display(list_0);
+	list_0.push_front(Player_1{ "Frodo", 25,98 });
+	display(list_0);
+	list_0.push_back(Player_1{ "Sam",37,89 });
+	display(list_0);
 return 0;
 }
