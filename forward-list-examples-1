@@ -10,6 +10,8 @@ void display(const std::list<T>& l) {
 	for (const auto &i : l) {
 		std::cout << i << " ";
 	}
+	std::cout << "]";
+}
 }
 
 class Player_1 {
@@ -24,8 +26,13 @@ public:
 	Player_1(const Player_1& p) : name{ p.name }, xp{ p.xp }, health{ p.health } {} //copy constructor
 	~Player_1() = default;
 	bool operator > (const Player_1& p) { return this->xp > p.xp; }
+	bool operator == (const Player_1& rhs) const { return (this->name == rhs.name && this->xp == rhs.xp); }
 	int get_xp() { return this->xp; }
 	std::string get_name() { return this->name; }
+	double get_health() { return this->health; }
+	void set_name(std::string name) { this->name = name; }
+	void set_xp(int xp) { this->xp = xp; }
+	void set_health(double health) { this->health = health; }
 };
 
 std::ostream& operator<< (std::ostream& os, const Player_1& rhs) {
