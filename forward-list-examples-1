@@ -25,6 +25,7 @@ public:
 	~Player_1() = default;
 	bool operator > (const Player_1& p) { return this->xp > p.xp; }
 	int get_xp() { return this->xp; }
+	std::string get_name() { return this->name; }
 };
 
 std::ostream& operator<< (std::ostream& os, const Player_1& rhs) {
